@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: harness-hello-world
+spec:
+  template:
+    metadata:
+      name: harness-hello-app-pod
+    spec:
+      containers:
+      - name: harness-pov
+        image: povsandbox/harness-pov
+      restartPolicy: Never
