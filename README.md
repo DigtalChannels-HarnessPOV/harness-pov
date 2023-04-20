@@ -3,14 +3,9 @@
 
 Testing commits
 
-# To run app in docker the container
+# Pull the image from docker hub
+Run `docker pull povsandbox/harness-pov`
 
-Run `docker-compose up` in the harness-pov directory
+# Run the the pulled image
 
-# To rebuild the app in docker the container
-
-Run `docker-compose up --build` in the harness-pov directory
-
-# To kill the container
-
-Run `docker-compose down` in the harness-pov directory
+Run `docker run -p 3000:3000 -d povsandbox/harness-pov`
