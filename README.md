@@ -12,3 +12,6 @@ Run `docker run -p 3000:3000 -d povsandbox/harness-pov`
 
 # To Deploy the app to eks
 Run `kubectl create -f my-hello-app.yml`
+
+## To apply changes
+You can run `kubectl apply -f my-hello-app.yml` 
