@@ -9,3 +9,6 @@ Run `docker pull povsandbox/harness-pov`
 # Run the the pulled image
 
 Run `docker run -p 3000:3000 -d povsandbox/harness-pov`
+
+# To Deploy the app to eks
+Run `kubectl create -f my-hello-app.yml`
