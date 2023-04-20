@@ -10,4 +10,22 @@ spec:
       containers:
       - name: harness-pov
         image: povsandbox/harness-pov
+        ports:
+          - name: harness-pov
+            containerPort: 3000
+            protocol: TCP
+
       restartPolicy: Never
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: harness-hello-world
+spec:
+  selector:
+    name: harness-hello-world
+  ports:
+  - name: harness-pov
+    port: 3000
+  clusterIP: None
