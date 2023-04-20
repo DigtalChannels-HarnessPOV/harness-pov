@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  my-hello-app:
+    build: ./my-hello-app
+    container_name: myHelloApp_container
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./my-hello-app/src:/app/src
+    # -it flag below is for interactive mode previously required for react apps? 
+    # stdin_open: true
+    # tty: true
