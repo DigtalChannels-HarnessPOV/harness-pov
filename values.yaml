@@ -1,10 +1,11 @@
 name: <+service.name>
-replicas: 4
+replicas: 2
 
 image: <+artifact.image>
 dockercfg: <+artifact.imagePullSecret>
 
 createNamespace: "true"
+#Having "createNamespace" set to true tells Harness to attempt to create a namespace
 namespace: <+infra.namespace>
 
 # Service Type allow you to specify what kind of service you want.
@@ -14,5 +15,5 @@ serviceType: ClusterIP
 
 # A Service can map an incoming port to any targetPort.
 # targetPort is where application is listening on inside the container.
-servicePort: 80
+servicePort: 3000
 serviceTargetPort: 3000
