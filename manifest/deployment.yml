@@ -32,3 +32,15 @@ spec:
             name: {{lower .Values.name}}
         {{- end}}
         {{- end}}
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: harness-hello-world
+spec:
+  selector:
+    name: harness-hello-world
+  ports:
+  - name: harness-pov
+    port: 3000
+  clusterIP: None
