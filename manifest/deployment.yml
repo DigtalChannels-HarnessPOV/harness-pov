@@ -1,1 +1,34 @@
-hello
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{lower .Values.name}}-deployment
+  labels:
+    app: {{lower .Values.name}}
+spec:
+  replicas: {{int .Values.replicas}}
+  selector:
+    matchLabels:
+      app: {{lower .Values.name}}
+  template:
+    metadata:
+      labels:
+        app: {{lower .Values.name}}
+    spec:
+    {{- if .Values.dockercfg}}
+      imagePullSecrets:
+      - name: {{lower .Values.name}}-dockercfg
+      {{- end}}
+      containers:
+      - name: {{lower .Values.name}}
+        image: {{.Values.image}}
+        {{- if or .Values.env.config .Values.env.secrets}}
+        envFrom:
+        {{- if .Values.env.config}}
+        - configMapRef:
+            name: {{lower .Values.name}}
+        {{- end}}
+        {{- if .Values.env.secrets}}
+        - secretRef:
+            name: {{lower .Values.name}}
+        {{- end}}
+        {{- end}}
