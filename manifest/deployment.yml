@@ -43,5 +43,5 @@ spec:
     name: harness-hello-world
   ports:
   - name: harness-pov
-    port: {{lower .Values.servicePort}}
+    port: {{ .Values.servicePort}}
   clusterIP: None
