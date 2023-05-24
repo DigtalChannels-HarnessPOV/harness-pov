@@ -15,3 +15,5 @@ Run `kubectl create -f my-hello-app.yml`
 
 ## To apply changes
 You can run `kubectl apply -f my-hello-app.yml` 
+
+# Changes here for the purposes of the POV
